@@ -1,0 +1,20 @@
+.{
+    .name = .zig_impeller_examples,
+    .version = "0.0.1",
+    .fingerprint = 0xc9e9c5565c6334f1,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .glfw_zig = .{
+            .url = "git+https://github.com/tiawl/glfw.zig?ref=zig-stable#32a093cd869a0694ca2c0306680f7c7bc5dcd0b9",
+            .hash = "glfw_zig-1.0.0-NrvYoyvRGQDgKTTvaAaJLZWQsL6AL5F8jGsBla2V275Y",
+        },
+        .zig_impeller = .{
+            .url = "git+https://github.com/KercyDing/zig-impeller?ref=main#4a815323b7974e6919c59e761039c1cfb0ecf21b",
+            .hash = "zig_impeller-0.0.1-EE9FH5kSLQND2JMcVWRmjK4fFlXFu90HqRg01oWyDcCk",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "examples",
+    },
+}
