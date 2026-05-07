@@ -87,7 +87,7 @@ fn addLinuxGlfwExample(
             .{ .name = "build_options", .module = linux_example_options.createModule() },
         },
     });
-    configureImpeller(example_mod, impeller_dep, options.target.result);
+    configureImpeller(example_mod, impeller_dep);
 
     const example = b.addExecutable(.{
         .name = "linux-glfw",
@@ -124,7 +124,7 @@ fn addMacosGlfwExample(
             .{ .name = "glfw_c", .module = glfw_c },
         },
     });
-    configureImpeller(example_mod, impeller_dep, options.target.result);
+    configureImpeller(example_mod, impeller_dep);
     example_mod.addCSourceFile(.{
         .file = b.path("examples/macos/macos_glfw_metal.m"),
         .flags = &.{ "-fobjc-arc", "-Wno-deprecated-declarations", "-Wno-unguarded-availability-new" },
@@ -169,7 +169,7 @@ fn addWindowsGlfwExample(
             .{ .name = "glfw_c", .module = glfw_c },
         },
     });
-    configureImpeller(example_mod, impeller_dep, options.target.result);
+    configureImpeller(example_mod, impeller_dep);
 
     const example = b.addExecutable(.{
         .name = "windows-glfw",
@@ -204,7 +204,7 @@ fn addCommonDrawModule(
             .{ .name = "impeller", .module = impeller },
         },
     });
-    configureImpeller(draw_mod, impeller_dep, options.target.result);
+    configureImpeller(draw_mod, impeller_dep);
     return draw_mod;
 }
 
@@ -234,10 +234,8 @@ fn linkLinuxVulkanExample(exe: *std.Build.Step.Compile) void {
     exe.root_module.linkSystemLibrary("m", .{});
 }
 
-fn configureImpeller(module: *std.Build.Module, impeller_dep: *std.Build.Dependency, target: std.Target) void {
+fn configureImpeller(module: *std.Build.Module, impeller_dep: *std.Build.Dependency) void {
     module.addIncludePath(impeller_dep.path("vendor/impeller/include"));
-    module.addRPath(impellerLibPath(impeller_dep, target));
-    linkImpeller(module, impeller_dep, target);
 }
 
 fn linkImpeller(module: *std.Build.Module, impeller_dep: *std.Build.Dependency, target: std.Target) void {
