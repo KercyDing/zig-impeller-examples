@@ -9,7 +9,7 @@
             .hash = "glfw_zig-1.0.0-NrvYoyvRGQDgKTTvaAaJLZWQsL6AL5F8jGsBla2V275Y",
         },
         .zig_impeller = .{
-            .url = "git+https://github.com/KercyDing/zig-impeller?ref=main#4a815323b7974e6919c59e761039c1cfb0ecf21b",
+            .url = "git+https://github.com/KercyDing/zig-impeller?ref=main#bbbf9a44b70e059389e2b8ff863bdd9f083d76c3",
             .hash = "zig_impeller-0.0.1-EE9FH5kSLQND2JMcVWRmjK4fFlXFu90HqRg01oWyDcCk",
         },
     },
