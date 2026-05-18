@@ -34,3 +34,7 @@ Windows:
 ```bash
 zig build run -Dplatform=windows
 ```
+
+## Known issue
+
+`zig build run` may print Vulkan swapchain validation errors. This comes from the current Impeller SDK, not these examples, and may be fixed by a future SDK update.
