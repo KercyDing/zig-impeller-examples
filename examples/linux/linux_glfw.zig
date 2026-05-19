@@ -1,10 +1,7 @@
 const std = @import("std");
-const build_options = @import("build_options");
 const impeller = @import("impeller");
 const draw = @import("common_draw");
 const glfw = @import("glfw_c");
-
-const window_manager = build_options.wm;
 
 const ExampleError = error{
     GlfwInitFailed,
@@ -78,10 +75,7 @@ pub fn main() !void {
 }
 
 fn configureGlfwPlatform() void {
-    switch (window_manager) {
-        .x11 => glfw.glfwInitHint(glfw.GLFW_PLATFORM, glfw.GLFW_PLATFORM_X11),
-        .wayland => glfw.glfwInitHint(glfw.GLFW_PLATFORM, glfw.GLFW_PLATFORM_WAYLAND),
-    }
+    glfw.glfwInitHint(glfw.GLFW_PLATFORM, glfw.GLFW_PLATFORM_X11);
 }
 
 const VulkanProcResolver = struct {

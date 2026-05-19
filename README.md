@@ -11,29 +11,30 @@ This package depends on:
 
 ## Run
 
-Linux defaults to X11:
+Run on the current machine:
 
 ```bash
-zig build run -Dplatform=linux
+zig build run
 ```
 
-Use Wayland explicitly when needed:
+Cross compile with Zig's standard target option. For example, Linux to Windows:
 
 ```bash
-zig build run -Dplatform=linux -Dwm=wayland
+zig build -Dtarget=x86_64-windows-gnu
 ```
 
-macOS:
+Available Impeller SDK targets:
 
-```bash
-zig build run -Dplatform=macos
-```
+| Platform | `-Dtarget` |
+| --- | --- |
+| Linux x64 | `x86_64-linux-gnu` |
+| Linux arm64 | `aarch64-linux-gnu` |
+| macOS x64 | `x86_64-macos` |
+| macOS arm64 | `aarch64-macos` |
+| Windows x64 | `x86_64-windows-gnu` |
+| Windows arm64 | `aarch64-windows-gnu` |
 
-Windows:
-
-```bash
-zig build run -Dplatform=windows
-```
+These examples also build GLFW and platform windowing code, so not every SDK target can be cross compiled from every host. macOS targets need Apple's SDK/frameworks, and Linux arm64 currently needs extra GLFW/X11 cross-build support.
 
 ## Known issue
 

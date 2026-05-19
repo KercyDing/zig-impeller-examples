@@ -1,7 +1,5 @@
 const std = @import("std");
 
-const LinuxWindowManager = enum { x11, wayland };
-
 const ExampleInfo = struct {
     name: []const u8,
     src: []const u8,
@@ -45,13 +43,6 @@ pub fn build(b: *std.Build) void {
         },
     });
 
-    const build_options = b.addOptions();
-    build_options.addOption(
-        LinuxWindowManager,
-        "wm",
-        b.option(LinuxWindowManager, "wm", "Linux window manager backend (x11, wayland)") orelse .x11,
-    );
-
     const example_info: ExampleInfo = switch (os_tag) {
         .linux => .{ .name = "linux-glfw", .src = "examples/linux/linux_glfw.zig" },
         .macos => .{ .name = "macos-glfw", .src = "examples/macos/macos_glfw.zig" },
@@ -68,7 +59,6 @@ pub fn build(b: *std.Build) void {
     exe_mod.addImport("impeller", impeller_mod);
     exe_mod.addImport("common_draw", common_draw_mod);
     exe_mod.addImport("glfw_c", glfw_c_mod);
-    exe_mod.addImport("build_options", build_options.createModule());
 
     const exe = b.addExecutable(.{
         .name = example_info.name,
