@@ -1,12 +1,13 @@
 # zig-impeller-examples
 
-Runnable GLFW examples for [`zig-impeller`](https://github.com/KercyDing/zig-impeller).
+Runnable SDL3 and GLFW examples for [`zig-impeller`](https://github.com/KercyDing/zig-impeller).
 
 ## Dependencies
 
 This package depends on:
 
 - `zig_impeller`
+- `sdl3`
 - `glfw_zig`
 
 ## Run
@@ -16,6 +17,16 @@ Run on the current machine:
 ```bash
 zig build run
 ```
+
+SDL3 is the default backend.
+
+Use GLFW instead:
+
+```bash
+zig build run -Dbackend=glfw
+```
+
+The SDL3 Linux example forces the X11 video driver for now.
 
 Cross compile with Zig's standard target option. For example, Linux to Windows:
 
@@ -34,7 +45,7 @@ Available Impeller SDK targets:
 | Windows x64 | `x86_64-windows-gnu` |
 | Windows arm64 | `aarch64-windows-gnu` |
 
-These examples also build GLFW and platform windowing code, so not every SDK target can be cross compiled from every host. macOS targets need Apple's SDK/frameworks, and Linux arm64 currently needs extra GLFW/X11 cross-build support.
+These examples also build SDL3/GLFW and platform windowing code, so not every SDK target can be cross compiled from every host. macOS targets need Apple's SDK/frameworks, and Linux arm64 currently needs extra windowing cross-build support.
 
 ## Known issue
 

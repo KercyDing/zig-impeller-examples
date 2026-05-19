@@ -7,10 +7,16 @@
         .glfw_zig = .{
             .url = "git+https://github.com/tiawl/glfw.zig?ref=zig-stable#32a093cd869a0694ca2c0306680f7c7bc5dcd0b9",
             .hash = "glfw_zig-1.0.0-NrvYoyvRGQDgKTTvaAaJLZWQsL6AL5F8jGsBla2V275Y",
+            .lazy = true,
         },
         .zig_impeller = .{
             .url = "git+https://github.com/KercyDing/zig-impeller?ref=main#831244fa34e8af579d1a14203b5b65ebf66f4ba5",
             .hash = "zig_impeller-0.0.1-EE9FH1wbAQCxd0oT4o-sjz-Vw2vyL1gFF2GIK6Vlj4L-",
+        },
+        .sdl3 = .{
+            .url = "git+https://codeberg.org/7Games/zig-sdl3?ref=master#40c2e4b579aa556db37a502c936426aa1c8b5c95",
+            .hash = "sdl3-0.2.0-NmT1Q0mFJwBi9kZmArzh2rfJ_mFshydV0zPGULVlpACc",
+            .lazy = true,
         },
     },
     .paths = .{
